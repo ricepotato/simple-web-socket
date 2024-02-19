@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <main>
+      <button id="btnSayHi">say hi</button>
+    </main>
+    <script>
+      const ws = new WebSocket("ws://localhost:8001");
+
+      function sayHi() {
+        ws.send("hello");
+      }
+
+      function init() {
+        addEvents();
+      }
+
+      function addEvents() {
+        document.getElementById("btnSayHi").addEventListener("click", sayHi);
+      }
+
+      init();
+    </script>
+  </body>
+</html>
